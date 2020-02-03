@@ -22,7 +22,9 @@ public class RedisHandler {
 	}
 
 	public RouterFunction route() {
-		return RouterFunctions.route().GET("/redis/sse", this::sse).POST("/redis/post", this::post).build();
+		return RouterFunctions.route()
+				.GET("/redis/sse", this::sse)
+				.POST("/redis/post", this::post).build();
 	}
 
 	public Mono<ServerResponse> post(ServerRequest request) {
