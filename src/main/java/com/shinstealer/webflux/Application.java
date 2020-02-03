@@ -22,7 +22,6 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 
 	}
-	
 
 	@Bean
 	public RouterFunction<ServerResponse> routes(ReactiveRedisConnectionFactory factory) {
@@ -31,7 +30,7 @@ public class Application {
 
 	@Bean
 	public ReactiveRedisTemplate<String, Message> reactiveRedisTemplate(ReactiveRedisConnectionFactory factory) {
-		
+
 		StringRedisSerializer keySerializer = new StringRedisSerializer();
 		Jackson2JsonRedisSerializer<Message> valueSerializer = new Jackson2JsonRedisSerializer<>(Message.class);
 		RedisSerializationContext.RedisSerializationContextBuilder<String, Message> builder = RedisSerializationContext
